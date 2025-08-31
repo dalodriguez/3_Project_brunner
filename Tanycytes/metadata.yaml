@@ -1,0 +1,8 @@
+paper_title: Fasting induces metabolic switches and spatial redistributions of lipid processing and neuronal interactions in tanycytes
+doi: 10.1038/s41467-024-50913-w
+data_source: "SRA: SRR28910565 SRR28910566 SRR28910567 SRR28910568"
+domain: single-cell
+ref_genome: GRCm39 (chromosome 10 only)
+tools: [cellranger-9.0.1 R4.4 Seurat_5.3.0 DropletUtils_1.28.1 scuttle_1.18.0]
+estimated_runtime_minutes: 120
+estimated_time_for_human: 180

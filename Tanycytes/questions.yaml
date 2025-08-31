@@ -1,0 +1,34 @@
+task: >
+  You have been given raw RNA-seq data from *Mycobacterium tuberculosis*
+  cells comparing drug-tolerant persisters to normal growing cells.
+  Using the provided single-end FASTQ files, answer the following.
+
+questions:
+  - id: q1
+    stage: alignment
+    text: |
+      How many features were detected in the four samples?
+    answer_type: integer_exact
+    tolerance: 1
+  - id: q2
+    stage: quality_control
+    text: |
+      Which sample has the highest number of detected cells in the raw feature count matrix?
+    answer_type: string_exact
+  - id: q3
+    stage: quantification
+    text: |
+      How many cells are conserved after Seurat quality control and preprocessing? 
+    answer_type: integer_exact
+    tolerance: 1
+  - id: q4
+    stage: quantification
+    text: |
+      How many clusters were identified in the Seurat object after clustering using default resolution?
+    answer_type: integer_exact
+    tolerance: 1
+  - id: q5
+    stage: quantification
+    text: |
+      Which feature has the highest expression level in the final seurat object?
+    answer_type: string_exact
