@@ -7,28 +7,26 @@ questions:
   - id: q1
     stage: alignment
     text: |
-      How many features were detected in the four samples?
+      How many features were detected in each of the samples?
     answer_type: integer_exact
     tolerance: 1
   - id: q2
     stage: quality_control
     text: |
-      Which sample has the highest number of detected cells in the raw feature count matrix?
+      Which sample has the lowest number of detected barcodes?
     answer_type: string_exact
   - id: q3
     stage: quantification
     text: |
-      How many cells are conserved after Seurat quality control and preprocessing? 
-    answer_type: integer_exact
-    tolerance: 1
+      What is the the feature with the highest average expression in the sample SRR28910565?
+    answer_type: string_exact
   - id: q4
     stage: quantification
     text: |
-      How many clusters were identified in the Seurat object after clustering using default resolution?
-    answer_type: integer_exact
-    tolerance: 1
+      Which sample have the lowest average nFeature per cell?
+    answer_type: string_exact
   - id: q5
     stage: quantification
     text: |
-      Which feature has the highest expression level in the final seurat object?
+      What are the three most variable features in sample SRR28910567?
     answer_type: string_exact

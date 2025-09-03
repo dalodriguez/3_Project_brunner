@@ -9,9 +9,9 @@ DOI: 10.1038/s41467-024-50913-w
 
 The study evaluate the role of tanycytes, ependymal cells lining the third ventricle (3V) in the mediobasal hypothalamus of the brain, in the control of metabolism. The workflow in this repository replicate the main steps of the data analysis described in the paper, focused on feeding (wild type) samples (SRR28910565 SRR28910566 SRR28910567 SRR28910568), originally sequenced with Illumina HiSeq 4000.
 
-The subsampled FASTQs are stored in `data/Fastq_subsampled` and are used as the inputs for the workflow.
+The subsampled FASTQs are stored in `data/Fastq_subsampled`, and output cellranger files are stored in `data/$SRR/outs`. Only filtered_feature_bc_matrix.h5 files are used as inputs for the workflow.
 
-The code to generate the response to the questions are in `workflow/3_Answer_Questions.sh`
+The code to generate the response to the questions are in `workflow/3_Answer_Questions.py`
 
 ## 2. How to download
 
@@ -69,8 +69,7 @@ awk '$1 == "10" || $1 ~ /^#/' Mus_musculus.GRCm39.112.gtf > ../Reference_ch10/ch
 
 ## 4. How the workflow works
 
-The workflow files are stored in `workflow/`. The files needed are `workflow/2_Workflow.sh` and `workflow/3_Workflow_Seurat.R.sh`
-
+The workflow files are stored in `workflow/`. The files needed are `workflow/2_Workflow.sh` (if running cellranger) and `workflow/3_Answer_Questions` (to use directly h5 files).
 
 ### Step 1 - Building subset reference genome (chromosome 10) 
 
@@ -88,7 +87,7 @@ cellranger mkref \
 ```
 
 ---
-### Step 2 - Cellranger pipeline
+### Step 2 - Cellranger pipeline (trimming, alignement, count matrix generation)
 
 **Purpose:** Perform alignment and generate count matrix
 **Tools:** `cellranger`
@@ -115,14 +114,4 @@ The `data/aggr.csv` is required, containing the list of SRR files and the path t
 cellranger aggr --id=Combined --csv=aggr.csv --normalize=mapped
 ```
 
-
-### Step 3 – Downstream Analysis
-
-**Purpose:** Generate a seurat object, perform quality control
-**Tools:** `R4.4` `Seurat_5.3.0` `DropletUtils_1.28.1` `scuttle_1.18.0`
-**Inputs:** Filtered feature bc matrix from the aggregated cellranger analysis (from `data\Combined\outs\count\filtered_feature_bc_matrix`)
-**Outputs:** RDS seurat object
-**Command:**
-
-The full R pipeline is in the `workflow/3_Workflow_Seurat.R.sh` file
 
