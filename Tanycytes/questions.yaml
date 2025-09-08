@@ -1,7 +1,5 @@
 task: >
-  You have been given raw RNA-seq data from *Mycobacterium tuberculosis*
-  cells comparing drug-tolerant persisters to normal growing cells.
-  Using the provided single-end FASTQ files, answer the following.
+  You have been given single cell RNAseq data from 10x Genomics from mouse hypothalamic cells. Using the files provided in the /data folder, answer the following.
 
 questions:
   - id: q1
