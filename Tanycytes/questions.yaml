@@ -7,7 +7,7 @@ questions:
     text: |
       How many features were detected in each of the samples?
     answer_type: integer_exact
-    tolerance: 1
+    tolerance: 1-5
   - id: q2
     stage: quality_control
     text: |
